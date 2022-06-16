@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<style>
+    /* Font */
+
+    @import url('https://fonts.googleapis.com/css2?family=Neonderthaw&display=swap');
+
+    /* Some Resets */
+
+    *,
+    *::before,
+    *::after {
+        box-sizing: border-box;
+    }
+
+    html {
+        scroll-behavior: smooth;
+        overflow-x: hidden;
+    }
+
+    html,
+    body,
+    h1 {
+        margin: 0;
+        padding: 0;
+        line-height: 1;
+    }
+
+    /* Color Variables */
+
+    :root {
+        --bright-neon: #fff;
+        --primary-neon: #ff63fa;
+        --dark-neon: #5a2e59;
+    }
+
+    /* Main Animation */
+
+    main {
+        margin: 0;
+        height: 100vh;
+        width: 100%;
+        font-size: 5em;
+        text-align: center;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        background-color: black;
+    }
+
+    .neon {
+        font-family: 'Neonderthaw', cursive;
+        user-select: none;
+        color: var(--bright-neon);
+        animation: flicker 15s infinite;
+    }
+
+    @keyframes flicker {
+
+        /* Default Glow */
+        0%,
+        9%,
+        27%,
+        28%,
+        30%,
+        46%,
+        55%,
+        69%,
+        83%,
+        85%,
+        91%,
+        100% {
+            color: var(--bright-neon);
+            text-shadow:
+                0 0 7px var(--bright-neon),
+                0 0 10px var(--bright-neon),
+                0 0 21px var(--bright-neon),
+                0 0 42px var(--primary-neon),
+                0 0 82px var(--primary-neon),
+                0 0 92px var(--primary-neon),
+                0 0 102px var(--primary-neon),
+                0 0 151px var(--primary-neon);
+        }
+
+        /* Dimmed Glow */
+        5%,
+        18%,
+        43%,
+        58%,
+        64% {
+            color: var(--bright-neon);
+            text-shadow:
+                0 0 7px var(--bright-neon),
+                0 0 10px var(--bright-neon),
+                0 0 21px var(--bright-neon),
+                0 0 42px var(--primary-neon),
+                0 0 72px var(--primary-neon),
+                0 0 72px var(--primary-neon),
+                0 0 72px var(--primary-neon),
+                0 0 72px var(--primary-neon);
+        }
+
+        /* Flicker Out */
+        29%,
+        84%,
+        90% {
+            text-shadow: none;
+            color: var(--dark-neon);
+        }
+    }
+</style>
+
+<body>
+    <main>
+        <h1 class="neon">Hi Jannat</h1>
+    </main>
+</body>
+
+</html>
