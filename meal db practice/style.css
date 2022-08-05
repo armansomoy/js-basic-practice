@@ -1,0 +1,20 @@
+body {
+    background-color: rgb(227, 253, 253);
+}
+
+.card {
+    border: 1px solid rgb(255, 255, 255);
+    border-radius: 15px;
+    padding: 10px;
+    margin-bottom: 30px;
+    height: 500px;
+}
+
+#modal-dialog .row {
+    width: 100%;
+    background-color: rgb(255, 255, 255);
+    border: 1px solid #fff;
+    padding: 20px;
+    border-radius: 15px;
+    margin-bottom: 30px;
+}
