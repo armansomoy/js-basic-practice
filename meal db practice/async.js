@@ -1,6 +1,16 @@
+const toggleSpinner = displayStyle => {
+    document.getElementById('spinner').style.display = displayStyle;
+}
+// const toggleSearchResult= displayStyle => {
+//     document.getElementById('search-result').style.display = displayStyle;
+// }
 const searchFood = async () => {
     const searchField = document.getElementById('search-filed');
     const searchText = searchField.value;
+
+    toggleSpinner('block');
+    // toggleSearchResult('none');
+
     // clear data
     searchField.value = '';
 
@@ -16,21 +26,27 @@ const displaySearchResult = result => {
     // searchResult.textContent = '';
     // console.log(result.length);
 
-    result.forEach(meal => {
-        const div = document.createElement('div');
-        div.classList.add('col-lg-4');
-        div.innerHTML = `
-        <div class="card">
-              <img src="${meal.strMealThumb}" class="card-img-top" alt="...">
-              <div class="card-body">
-                <h5 class="card-title">${meal.strMeal}</h5>
-                <p class="card-text">${meal.strInstructions.slice(0, 100)}</p>
-                <button class="btn btn-outline-info" onClick="loadMealDetails(${meal.idMeal})">See Details</button>
-              </div>
-            </div>
-        `;
-        searchResult.appendChild(div);
-    })
+    if (result === null) {
+        alert("Insert a Valid Food Name");
+    } else {
+        result.forEach(meal => {
+            const div = document.createElement('div');
+            div.classList.add('col-lg-4');
+            div.innerHTML = `
+            <div class="card">
+                  <img src="${meal.strMealThumb}" class="card-img-top" alt="...">
+                  <div class="card-body">
+                    <h5 class="card-title">${meal.strMeal}</h5>
+                    <p class="card-text">${meal.strInstructions.slice(0, 100)}</p>
+                    <button class="btn btn-outline-info" onClick="loadMealDetails(${meal.idMeal})">See Details</button>
+                  </div>
+                </div>
+            `;
+            searchResult.appendChild(div);
+        })
+    }
+    toggleSpinner('none');
+    // toggleSearchResult('block');
 }
 
 const loadMealDetails = async mealId => {
@@ -43,6 +59,7 @@ const loadMealDetails = async mealId => {
 
 const showDetails = result => {
     console.log(result);
+    toggleSpinner('block');
     const modalDialog = document.getElementById('modal-dialog');
     modalDialog.textContent = '';
     const div = document.createElement('div');
@@ -60,4 +77,5 @@ const showDetails = result => {
     </div>
     `;
     modalDialog.appendChild(div);
+    toggleSpinner('none');
 }

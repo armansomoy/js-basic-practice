@@ -21,15 +21,21 @@
                 aria-label="Recipient's username" aria-describedby="button-addon2">
             <button class="btn btn-outline-secondary" type="submit" onClick="searchFood()"
                 id="buttons-search">Search</button>
-        </div>
 
+        </div>
+        <!-- <div id="spinner">
+            Loading....
+        </div> -->
+        <div id="spinner" class="spinner-border m-5 justify-content-center" role="status">
+            <span class="visually-hidden">Loading...</span>
+        </div>
         <!-- search Result  -->
         <div class="row card-group" id="search-result">
 
 
 
 
-            <div  id="modal-dialog">
+            <div id="modal-dialog">
 
             </div>
 
@@ -50,7 +56,7 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-A3rJD856KowSb7dwlZdYEkO39Gagi7vIsF0jrRAoQmDKKtQBHUuLZ9AsSv4jD4Xa" crossorigin="anonymous">
     </script>
-    <script src="./script.js"></script>
+    <script src="./async.js"></script>
 </body>
 
 </html>
